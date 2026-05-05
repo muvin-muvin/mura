@@ -1,0 +1,217 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - Modern Recruitment Platform
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 210 10% 92%;
+    --foreground: 15 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 15 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 15 20% 15%;
+
+    /* Unique mura primary - Vibrant teal/emerald */
+    --primary: 162 75% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Coral/pink accent for energy */
+    --secondary: 12 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 14% 83%;
+    --muted-foreground: 215 13% 34%;
+
+    /* Accent - Bright lime accent for CTAs */
+    --accent: 82 95% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 16% 90%;
+    --input: 210 16% 93%;
+    --ring: 217 100% 45%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 10% 97%;
+    --sidebar-foreground: 15 20% 25%;
+    --sidebar-primary: 217 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 34 97% 53%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 16% 88%;
+    --sidebar-ring: 217 100% 45%;
+
+    /* Success color */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning color */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info color */
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 162 75% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 12 100% 62%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 20% 35%;
+    --muted-foreground: 0 0% 75%;
+
+    --accent: 82 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 25%;
+    --input: 215 20% 20%;
+    --ring: 217 100% 55%;
+
+    --sidebar-background: 15 25% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 217 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 34 97% 58%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 20% 22%;
+    --sidebar-ring: 217 100% 55%;
+
+    --success: 142 75% 48%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 199 89% 53%;
+    --info-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  /* Button variants - updated for modern look */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border border-border text-foreground hover:bg-muted inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
+  }
+
+  /* Card variant */
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 rounded-xl shadow-lg;
+  }
+
+  /* Badge variants */
+  .badge-primary {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary;
+  }
+
+  .badge-secondary {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-secondary/10 text-secondary;
+  }
+
+  .badge-accent {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-success/10 text-success;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-warning/10 text-warning;
+  }
+}
